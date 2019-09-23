@@ -1,6 +1,7 @@
 
 `timescale 1ns / 1ps
 
+/* Módulo para simulação do circuito */
 module top_tb;
 
    reg 		rst;
@@ -33,13 +34,16 @@ module top_tb;
       $dumpfile("top.vcd");
       $dumpvars();
       
+      /* Iniciação dos sinais de entrada do circuito */	
       rst = 1;
       clk = 1;
       
       data_in_valid = 0;
 
       #50.1 rst = 0;
-
+      
+      /* Estimular os sinais de entrada de modo a produzir 
+      saídas para averiguar o correto comportamento do circuito */
       for(i=0; i < 10; i++) begin 
 	 data_in = i+2;
 	 data_in_valid = 1;
@@ -53,6 +57,7 @@ module top_tb;
 
    end
    
+   /* Geração do clk para simulação do circuito */
    always
      #(10/2) clk = ~clk; //period=10ns => 100MHz
    
