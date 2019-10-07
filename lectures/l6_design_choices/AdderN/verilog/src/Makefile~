@@ -1,8 +1,0 @@
-adderN: adderN.v ../testbench/adderN_tb.v
-	iverilog -o adderN adderN.v ../testbench/adderN_tb.v
-	./adderN
-
-clean: 
-	rm -f top *~ *.vcd
-
-.PHONY: clean all
