@@ -13,8 +13,8 @@ module gp
   output co
 );
 
-  assign G = p0 & p1;
-  assign P = g1 | (p1 & g0);
+  assign P = p0 & p1;
+  assign G = g1 | (p1 & g0);
   assign c0 = g0 | (p0 & ci);
     
 endmodule

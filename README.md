@@ -1,55 +1,30 @@
-# README #
+# SEC(Electronic Systems of Computers) - Classes #
 
-### Description ###
+### Lesson 2 - 23/09 ###
 
-* Computer Electronics
-* Repository of materials
+* Commented Verilog Code
 
-### Students' repositories: ###
+### Lesson 3 - 26/09 ###
 
-https://forms.gle/Ffnbq27XwSSnbhXm9
+* Multiple 2 numbers in picoversat assembly languague
 
-### Recommended OS ###
+### Lesson 4 - 30/09 ###
 
-Linux, the following flavors have been tested successfully (L)Ubuntu, Debian and Centos
+* FPGA diagram block drawn in LibreOffice
 
+### Lesson 5 - 03/10 ###
 
-### Practice Git ####
+* 
 
-https://try.github.io
+### Lesson 6 - 07/10 ###
 
+* Parameterized verilog code for an adder 
 
-### Resolved Exercices ####
-https://drive.google.com/open?id=1WJD7ufAjIWL5jOcqaquQn_EnzZuM6GYRjE7QjCuhFGU
+### Lesson 7 - 10/10 ###
 
-### PicoVersat ###
+* Verilog of a 4-bit adder using single 1-bit full adders
 
-git clone https://jjts@bitbucket.org/jjts/picoversat.git
+### Lesson 8 - 14/10 ###
 
-PicoVersat C compiler by Gonçalo Santos (master thesis)
-https://bitbucket.org/goncalosantos0/lcc/src/master/
+* Design in verilog a 4-bit adder with Carry Look-Ahead technique
 
-
-### PicoRV32 ###
-
-A small Verilog RISC-V processor
-https://github.com/cliffordwolf/picorv32
-
-
-### Icarus Verilog ###
-
-git clone https://github.com/steveicarus/iverilog
-
-``` git reset --hard v10_3```
-
-Follow the instructions contained in the repository itself to install Icarus Verilog
-
-
-### Install Xilinx ISE ###
-
-https://www.youtube.com/watch?v=meO-b6Ib17Y
-
-
-### FPGA Board Manual ###
-
-https://reference.digilentinc.com/reference/programmable-logic/basys-2/reference-manual

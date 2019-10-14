@@ -12,7 +12,8 @@ module fulladder
 );
 
    assign S = A ^ B ^ ci;
-   assign g = A & B;
    assign p = A ^ B;
+   assign g = A & B;
+
     
 endmodule

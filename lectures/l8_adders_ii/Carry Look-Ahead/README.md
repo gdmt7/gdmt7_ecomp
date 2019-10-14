@@ -2,7 +2,7 @@
 
 ### Description ###
 
-* Verilog description of an n-bit adder
+* Verilog description of 4-bit CLA (Carry Look-Ahead)
 
 ### Dependences ###
 

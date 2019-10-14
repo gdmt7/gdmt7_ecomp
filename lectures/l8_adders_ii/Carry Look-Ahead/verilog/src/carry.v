@@ -10,13 +10,22 @@ module carry
   input ci,
   output G,
   output P,
-  output co_int,
   output co
 );
 
-  assign G = p0 & p1;
+  gp gp0 (.g0(g0),
+          .g1(g1),
+	  .p0(p0),
+          .p1(p1),
+          .ci(ci),
+          .G(G),
+          .P(P),
+          .co(co)
+         );
+
+  /* assign G = p0 & p1;
   assign P = g1 | (p1 & g0);
   assign co_int = g1 | (p1*ci)
-  assign co = G | (P*ci);
+  assign co = G | (P*ci); */ 
     
 endmodule

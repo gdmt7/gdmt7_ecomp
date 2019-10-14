@@ -1,8 +1,8 @@
-fulladder: src/adder.v src/fulladder.v testbench/fulladder_tb.v
-	iverilog -o fulladder src/adder.v src/fulladder.v testbench/fulladder_tb.v
-	./fulladder
+CLA: src/fulladder.v src/gp.v src/carry.v src/CLA.v testbench/CLA_tb.v
+	iverilog -o CLA src/fulladder.v src/gp.v src/carry.v src/CLA.v testbench/CLA_tb.v
+	./CLA
 
 clean: 
-	rm -f fulladder *~ *.vcd
+	rm -f CLA *~ *.vcd
 
 .PHONY: clean all
