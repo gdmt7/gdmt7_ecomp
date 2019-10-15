@@ -3,20 +3,16 @@
 /* Descrição de um somador de N bits */
 module carry 
 (
-  input g0,
-  input g1,
-  input p0,
-  input p1,
+  input [1:0] g,
+  input [1:0] p,
   input ci,
   output G,
   output P,
   output co
 );
 
-  gp gp0 (.g0(g0),
-          .g1(g1),
-	  .p0(p0),
-          .p1(p1),
+  gp gp0 (.g(g),
+	  .p(p),
           .ci(ci),
           .G(G),
           .P(P),
