@@ -28,3 +28,6 @@
 
 * Design in verilog a 4-bit adder with Carry Look-Ahead technique
 
+### Lesson 9 - 17/10 ###
+
+* Description in verilog of a 2-bit multiplier
