@@ -1,0 +1,11 @@
+# 
+# Hello World!
+#
+#	a simple picoVersat program
+#
+	
+	ldi 1
+	wrw LED_BASE
+       
+#finish by writing to invalid address to activate trap
+end	wrw 0x3ff

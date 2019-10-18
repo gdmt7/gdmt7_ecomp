@@ -1,0 +1,12 @@
+\section{Introduction}
+
+A single full-adder has two one-bit inputs, sum output. Many of them can be used together to create a ripple carry adder which can be used to add large numbers together. A single full-adder is shown in the picture belowPicoVersat is a minimal hardware controller. It is designed for simple control
+tasks where normally finite state machines are employed. Being a programmable
+solution, the risk of hardware design errors is mitigated and the design of
+complex control structures is simplified.
+
+%\noindent
+%PicoVersat features a minimal instruction set which is not designed for high
+%performance computing. However, it can effectively implement simple algorithms
+%and perform simple calculations. PicoVersat has a program memory interface and a memory mapped data interface.
+
