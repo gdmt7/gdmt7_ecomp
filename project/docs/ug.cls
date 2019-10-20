@@ -12,6 +12,7 @@
 \RequirePackage{multirow}
 \RequirePackage{verbatim}
 \RequirePackage{geometry}
+\usepackage[utf8]{inputenc}
 
 \geometry{
  a4paper,
@@ -37,8 +38,11 @@
 \renewcommand{\footruleskip}{10pt}
 \renewcommand{\footrulewidth}{.4pt}
 
+\author{94336 - Guilherme Trindade\vspace{5pt} \\ 97142 - Hélio Júnior\vspace{5pt}}
+\let\theauthor\@author
+
 \fancyfoot{}
-\fancyfoot[LO,RE]{\copyright 2017 IObundle Lda All rights reserved\hspace{1cm}\url{www.iobundle.com}\hspace{1cm}{\bf Confidential}}
+\fancyfoot[LO,RE]{2019 - Instituto Superior Tecnico\hspace{2cm}\url{www.tecnico.ulisboa.pt}\hspace{1cm}}
 \fancyfoot[LE,RO]{\thepage}
 
 \newcommand{\category}[1]{\def\@category{#1}}
@@ -56,6 +60,16 @@
 \vspace*{2ex}
 \includegraphics[keepaspectratio,scale=.7]{Logo.png}
 
+\vspace{70pt}
+\hfill\begin{minipage}{.4\linewidth}\large
+Group 2\par\vspace{5pt}
+\theauthor\par\vspace{25pt}
+%Turno (hora, dia da semana)\par\vspace{5pt}
+Professor:\\
+José Teixeira de Sousa\par\vspace{5pt}
+\end{minipage}\vspace{150pt}
+
+\hspace{200pt}
 \small{\today}
 \vspace*{\fill}
 \end{titlepage}

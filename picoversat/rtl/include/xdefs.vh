@@ -33,6 +33,17 @@
 `define LED_BASE 602 //
 `define LED_ADDR_W 0 //only one address
 
+`define SWITCH_BASE 604 //
+`define SWITCH_ADDR_W 0 //only one address
+
+`define BUTTON_BASE 606 //
+`define BUTTON_ADDR_W 0 //only one address
+
+`define DISPLAY_BASE 608 //
+`define DISPLAY_ADDR_W 0 //only one address
+
+`define PS2_BASE 610 //
+`define PS2_ADDR_W 0 //only one address
 
 `define NO_EXT 1
 

@@ -1,5 +1,9 @@
 # SEC(Electronic Systems of Computers) - Classes #
 
+### Project - 20/09 ###
+
+* Project proposal in project/docs
+
 ### Lesson 2 - 23/09 ###
 
 * Commented Verilog Code

@@ -1,0 +1,34 @@
+\section{Interface Signals}
+\label{sec:is}
+
+The interface signals of the project are described in Table~\ref{tab:is}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|c|l|}
+\hline
+\multicolumn{1}{|c|}{\bf Name} & {\bf Direction} & {\bf Peripheral} & \multicolumn{1}{c|}{\bf Description} \\ 
+\hline \hline
+\multicolumn{1}{|l|}{clk}                & IN & FPGA clock & Clock signal.\\ 
+\hline
+\multicolumn{1}{|l|}{rst}                & IN & Button driver & Reset game signal.\\
+\hline
+\multicolumn{1}{|l|}{start}              & IN & Button driver & Start game signal.\\
+\hline
+\multicolumn{1}{|l|}{PS/2 clk}            & IN & PS/2 driver  & PS/2 clock signal.\\
+\hline
+\multicolumn{1}{|l|}{PS/2 data}           & IN & PS/2 driver & PS/2 data signal.\\
+\hline
+\multicolumn{1}{|l|}{LEDs}               & OUT & LED driver & Represent the game board.\\
+\hline
+\multicolumn{1}{|l|}{Display}            & OUT & Display driver & Represents the game score and level.\\
+\hline
+\multicolumn{1}{|l|}{Switches}            & IN & Display driver & Keys to input instead of using the keyboard. \\
+\hline
+\end{tabular}
+\caption{Interface signals.}
+\label{tab:is}
+\end{table}
+
+%\subsection{Instruction Bus Timing Diagram}
+%\label{sec:instrird}
