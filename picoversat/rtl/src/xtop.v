@@ -5,8 +5,8 @@
 module xtop (
 	     input                clk,
 	     input                rst,
-        output               led_out,
-        output               trap
+             output               [3:0] led_out,
+             output               trap
 
 `ifndef NO_EXT
 	     // external parallel interface
@@ -46,8 +46,8 @@ module xtop (
    wire                      led_sel;
 
 `ifdef DEBUG
-   reg 				            cprt_sel;
-   reg                        led_sel;
+   wire 		       cprt_sel;
+   //wire                        led_sel;
 `endif
 
 `ifndef NO_EXT
@@ -113,7 +113,7 @@ module xtop (
 	     .clk(clk),
              .rst(rst),
              .sel(led_sel & data_we),
-             .in(data_to_wr[0]), 
+             .in(data_to_wr[3:0]), 
              .out(led_out)
             );
 
@@ -134,8 +134,8 @@ module xtop (
 			                 .led_sel(led_sel),
 `ifdef DEBUG
                            //debug char printer
-	                       .cprt_sel(cprt_sel),
-                          .led_sel(led_sel),
+	                  .cprt_sel(cprt_sel),
+                          //.led_sel(led_sel),
 `endif
 
 `ifndef NO_EXT

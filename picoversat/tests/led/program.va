@@ -4,7 +4,7 @@
 #	a simple picoVersat program
 #
 	
-	ldi 1
+	ldi 15
 	wrw LED_BASE
        
 #finish by writing to invalid address to activate trap
