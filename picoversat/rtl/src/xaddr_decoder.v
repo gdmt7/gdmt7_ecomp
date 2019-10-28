@@ -20,6 +20,7 @@ module xaddr_decoder (
 `ifdef DEBUG	
 	              output reg          cprt_sel,
                       //output reg          led_sel,
+		      output reg          display_sel,
 `endif
 
 `ifndef NO_EXT
@@ -42,6 +43,7 @@ module xaddr_decoder (
 `ifdef DEBUG
       cprt_sel = 1'b0;
       //led_sel = 1'b0;
+      display_sel = 1'b0;
 `endif
 `ifndef NO_EXT
       ext_sel = 1'b0;
@@ -60,6 +62,8 @@ module xaddr_decoder (
         cprt_sel = sel;
       //else if ( (addr &  {  {`ADDR_W-`LED_ADDR_W{1'b1}}, {`LED_ADDR_W{1'b0}}  }) == `LED_BASE)
       //  led_sel = sel;
+      else if ( (addr &  {  {`ADDR_W-`DISPLAY_ADDR_W{1'b1}}, {`DISPLAY_ADDR_W{1'b0}}  }) == `DISPLAY_BASE)
+        display_sel = sel;
 `endif
       else
           trap_sel = sel;

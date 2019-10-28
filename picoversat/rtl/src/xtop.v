@@ -3,19 +3,21 @@
 
 
 module xtop (
-	     input                clk,
-	     input                rst,
-             output               [3:0] led_out,
-             output               trap
-
+	     input 		  clk,
+	     input 		  rst,
+             output [3:0] 	  led_out,
+	     output [11:0]        display_out,
+             output 		  trap
+				  
+				  
 `ifndef NO_EXT
-	     // external parallel interface
-	     , output [`ADDR_W-2:0] par_addr,
+// external parallel interface
+             , output [`ADDR_W-2:0] par_addr,
 	     input [`DATA_W-1:0]  par_in,
-        output               par_re, 
+             output 		  par_re, 
 	     output [`DATA_W-1:0] par_out,
-	     output               par_we
-`endif
+	     output 		  par_we
+				  `endif
 	     );
 
    //
@@ -26,7 +28,7 @@ module xtop (
    
    // INSTRUCTION MEMORY INTERFACE
    wire [`INSTR_W-1:0] 		  instruction;
-   wire [`ADDR_W-2:0]        pc;
+   wire [`ADDR_W-2:0]             pc;
 
    // DATA BUS
    wire 			  data_sel;
@@ -37,17 +39,18 @@ module xtop (
 
    
    // ADDRESS DECODER
-   wire                      mem_sel;
+   wire                           mem_sel;
    wire [`DATA_W-1:0] 		  mem_data_to_rd;
    
-   wire				           regf_sel;
+   wire				  regf_sel;
    wire [`DATA_W-1:0] 		  regf_data_to_rd;
 
-   wire                      led_sel;
+   wire                           led_sel;
 
 `ifdef DEBUG
-   wire 		       cprt_sel;
-   //wire                        led_sel;
+   wire 		          cprt_sel;
+   //wire                         led_sel;
+   wire                           display_sel;
 `endif
 
 `ifndef NO_EXT
@@ -120,22 +123,23 @@ module xtop (
    // INTERNAL ADDRESS DECODER
 
    xaddr_decoder addr_decoder (
-	                       // input select and address
+	                  // input select and address
                           .sel(data_sel),
-	                       .addr(data_addr),
+	                  .addr(data_addr),
                                
                           //memory 
-	                       .mem_sel(mem_sel),
+	                  .mem_sel(mem_sel),
                           .mem_data_to_rd(mem_data_to_rd),
 
                           //registers
-	                       .regf_sel(regf_sel),
+	                  .regf_sel(regf_sel),
                           .regf_data_to_rd(regf_data_to_rd),
-			                 .led_sel(led_sel),
+			  .led_sel(led_sel),
 `ifdef DEBUG
                            //debug char printer
 	                  .cprt_sel(cprt_sel),
                           //.led_sel(led_sel),
+			  .display_sel(display_sel),     
 `endif
 
 `ifndef NO_EXT
@@ -163,6 +167,16 @@ module xtop (
 		   .sel(cprt_sel & data_we),
 		   .data_in(data_to_wr[7:0])
 		   );
+
+   xdisplay display (
+		     .clk(clk),
+		     .rst(rst),
+		     .sel(display_sel & data_we),
+		     .n_display(data_to_wr[11:8]),
+		     .segments(data_to_wr[7:0]),
+		     .out(display_out)
+		     );   
+   
 `endif
    
 endmodule

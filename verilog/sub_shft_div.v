@@ -23,7 +23,7 @@ module sub_shft_div (
      else if (counter != 8)
        counter <= counter + 1'b1;
    
-   wire [7:0]                    tmp = d<<1 | a[7-counter];
+   wire [7:0]	 tmp = d<<1 | a[7-counter];
    
    always@(posedge clk)
      if(rst) begin
@@ -67,15 +67,15 @@ module sub_shft_div_tb ();
       clk = 1;
       start = 0;
 
-      a= 144;
-      b = 33;
+      a = 14;
+      b = 3;
 
       @(posedge clk) #1 rst=0;
 
       #5 @(posedge clk) #1 start=1;
       @(posedge clk) #1 start=0;
 
-      @(posedge done)$display("%d/%d=%d*%d+%d", a, b, c, b, d);
+      @(posedge done)$display("%d /%d =%d *%d +%d",a ,b ,c ,b ,d);
       
       @(posedge clk) $finish;
    end

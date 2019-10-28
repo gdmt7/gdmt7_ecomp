@@ -15,7 +15,7 @@
 
 
 // DEBUG: USE PRINTER AND GENERATE VCD FILE
-//`define DEBUG
+`define DEBUG 1
 
 //
 // MEMORY MAP

@@ -1,5 +1,5 @@
 #default test
-test := led
+test := display
 
 #RTL 
 INCLUDE_DIR := ../../rtl/include
