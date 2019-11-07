@@ -2,11 +2,11 @@
 `include "xdefs.vh"
 
 module xdisplay (
-	     input clk,
+		  input clk,
 	     input rst,
 	     input sel,
-	     input [3:0] n_display, //data_wr[x:0]
-             input [7:0] segments, //data_wr[x:0]
+	     input [3:0] n_display,
+        input [7:0] segments,
 	     output [11:0] out
 	    );
 
@@ -18,17 +18,17 @@ always@(posedge clk, posedge rst)
   else if (sel == 1) begin 
     case (segments)
       //4'd0  : out_aux <= 8'bhgfedcba;
-      4'd0  : out_aux <= 8'b10111111;
-      4'd1  : out_aux <= 8'b00000110;
-      4'd2  : out_aux <= 8'b01011011;
-      4'd3  : out_aux <= 8'b01001111; 
-      4'd4  : out_aux <= 8'b01100110; 
-      4'd5  : out_aux <= 8'b01101101; 
-      4'd6  : out_aux <= 8'b01111101; 
-      4'd7  : out_aux <= 8'b00000111;
-      4'd8  : out_aux <= 8'b01111111;
-      4'd9  : out_aux <= 8'b01101111;
-      default : out_aux <= 8'b00000000; 
+      8'd0  : out_aux <= 8'b01000000;
+      8'd1  : out_aux <= 8'b11111001;
+      8'd2  : out_aux <= 8'b10100100;
+      8'd3  : out_aux <= 8'b10110000; 
+      8'd4  : out_aux <= 8'b10011001; 
+      8'd5  : out_aux <= 8'b10010010; 
+      8'd6  : out_aux <= 8'b10000010; 
+      8'd7  : out_aux <= 8'b11111000;
+      8'd8  : out_aux <= 8'b10000000;
+      8'd9  : out_aux <= 8'b10010000;
+      default : out_aux <= 8'b11111111; 
     endcase
   end
 

@@ -2,25 +2,31 @@
 `timescale 1ns / 1ps
 
 module xaddr_decoder (
-	             // address and global select signal
-	              input [`ADDR_W-1:0] addr,
+	                   // address and global select signal
+	                   input [`ADDR_W-1:0] addr,
                       input               sel,
              
                       // ports
 
                       //memory
-	              output reg          mem_sel,
+	                   output reg          mem_sel,
                       input [31:0]        mem_data_to_rd,
 
-	              output reg          regf_sel,
+	                   output reg          regf_sel,
                       input [31:0]        regf_data_to_rd,
 
                       output reg          led_sel,
-
+							 output reg          display_sel,
+							 
+							 output reg          switch_sel,
+							 input [31:0]        switch_data_to_rd,
+							 
+							 output reg          button_sel,
+							 input [31:0]        button_data_to_rd,
+							 
 `ifdef DEBUG	
-	              output reg          cprt_sel,
+	                   output reg          cprt_sel,
                       //output reg          led_sel,
-		      output reg          display_sel,
 `endif
 
 `ifndef NO_EXT
@@ -40,10 +46,12 @@ module xaddr_decoder (
       mem_sel = 1'b0;
       regf_sel = 1'b0;
       led_sel = 1'b0;
+		display_sel = 1'b0;
+		switch_sel = 1'b0;
+		button_sel = 1'b0;
 `ifdef DEBUG
       cprt_sel = 1'b0;
       //led_sel = 1'b0;
-      display_sel = 1'b0;
 `endif
 `ifndef NO_EXT
       ext_sel = 1'b0;
@@ -57,13 +65,17 @@ module xaddr_decoder (
         regf_sel = sel;
       else if ( (addr &  {  {`ADDR_W-`LED_ADDR_W{1'b1}}, {`LED_ADDR_W{1'b0}}  }) == `LED_BASE)
         led_sel = sel;
+      else if ( (addr &  {  {`ADDR_W-`DISPLAY_ADDR_W{1'b1}}, {`DISPLAY_ADDR_W{1'b0}}  }) == `DISPLAY_BASE)
+        display_sel = sel;		  
+		else if ( (addr &  {  {`ADDR_W-`SWITCH_ADDR_W{1'b1}}, {`SWITCH_ADDR_W{1'b0}}  }) == `SWITCH_BASE)
+        switch_sel = sel;
+		else if ( (addr &  {  {`ADDR_W-`BUTTON_ADDR_W{1'b1}}, {`BUTTON_ADDR_W{1'b0}}  }) == `BUTTON_BASE)
+        button_sel = sel;		
 `ifdef DEBUG
       else if ( (addr &  {  {`ADDR_W-`CPRT_ADDR_W{1'b1}}, {`CPRT_ADDR_W{1'b0}}  }) == `CPRT_BASE)
         cprt_sel = sel;
       //else if ( (addr &  {  {`ADDR_W-`LED_ADDR_W{1'b1}}, {`LED_ADDR_W{1'b0}}  }) == `LED_BASE)
       //  led_sel = sel;
-      else if ( (addr &  {  {`ADDR_W-`DISPLAY_ADDR_W{1'b1}}, {`DISPLAY_ADDR_W{1'b0}}  }) == `DISPLAY_BASE)
-        display_sel = sel;
 `endif
       else
           trap_sel = sel;
@@ -77,6 +89,10 @@ module xaddr_decoder (
         data_to_rd = mem_data_to_rd;
       else if(regf_sel)
         data_to_rd = regf_data_to_rd;
+		else if(switch_sel)
+		  data_to_rd = switch_data_to_rd;
+		else if(button_sel)
+		  data_to_rd = button_data_to_rd;  
 `ifndef NO_EXT
       else if(ext_sel)
         data_to_rd = ext_data_to_rd;

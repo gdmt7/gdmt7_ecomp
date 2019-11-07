@@ -3,21 +3,21 @@
 
 
 module xtop (
-	     input 		  clk,
-	     input 		  rst,
-             output [3:0] 	  led_out,
-	     output [11:0]        display_out,
-             output 		  trap
-				  
-				  
+	     input                clk,
+	     input                rst,
+		  input                [3:0] button_in,
+        output               [3:0] led_out,
+		  output               [11:0] display_out,
+        output               trap
+
 `ifndef NO_EXT
-// external parallel interface
-             , output [`ADDR_W-2:0] par_addr,
+	     // external parallel interface
+	     , output [`ADDR_W-2:0] par_addr,
 	     input [`DATA_W-1:0]  par_in,
-             output 		  par_re, 
+        output               par_re, 
 	     output [`DATA_W-1:0] par_out,
-	     output 		  par_we
-				  `endif
+	     output               par_we
+`endif
 	     );
 
    //
@@ -28,34 +28,40 @@ module xtop (
    
    // INSTRUCTION MEMORY INTERFACE
    wire [`INSTR_W-1:0] 		  instruction;
-   wire [`ADDR_W-2:0]             pc;
+   wire [`ADDR_W-2:0]        pc;
 
    // DATA BUS
-   wire 			  data_sel;
-   wire 			  data_we;
+   wire 			              data_sel;
+   wire 			              data_we;
    wire [`ADDR_W-1:0] 		  data_addr;
    wire [`DATA_W-1:0] 		  data_to_rd;
    wire [`DATA_W-1:0] 		  data_to_wr;
 
    
    // ADDRESS DECODER
-   wire                           mem_sel;
+   wire                      mem_sel;
    wire [`DATA_W-1:0] 		  mem_data_to_rd;
    
-   wire				  regf_sel;
+   wire				           regf_sel;
    wire [`DATA_W-1:0] 		  regf_data_to_rd;
 
-   wire                           led_sel;
+   wire                      led_sel;
+	wire                      display_sel;
+	
+	wire 							  switch_sel;
+	wire [`DATA_W-1:0]        switch_data_to_rd;
+	
+   wire 							  button_sel;
+	wire [`DATA_W-1:0]        button_data_to_rd;
 
 `ifdef DEBUG
-   wire 		          cprt_sel;
-   //wire                         led_sel;
-   wire                           display_sel;
+   wire 		                 cprt_sel;
+   //wire                    led_sel;
 `endif
 
 `ifndef NO_EXT
-   wire                       ext_sel;
-   wire [`DATA_W-1:0]         ext_data_to_rd = par_in;
+   wire                      ext_sel;
+   wire [`DATA_W-1:0]        ext_data_to_rd = par_in;
  
    //External interface
    assign par_addr = data_addr[`ADDR_W-2:0];
@@ -63,8 +69,7 @@ module xtop (
    assign par_out = data_to_wr;
    assign par_we = ext_sel & data_we;
 `endif
-   
-   
+ 
    //
    // CONTROLLER MODULE
    //
@@ -113,33 +118,62 @@ module xtop (
    
    // LED MODULE 
    xled led (
-	     .clk(clk),
+	          .clk(clk),
              .rst(rst),
              .sel(led_sel & data_we),
              .in(data_to_wr[3:0]), 
              .out(led_out)
             );
 
+   xdisplay display (
+		               .clk(clk),
+						   .rst(rst),
+						   .sel(display_sel & data_we),
+						   .n_display(data_to_wr[11:8]),
+						   .segments(data_to_wr[7:0]),
+						   .out(display_out)
+						   );  
+						  
+	xswitch switch (
+	                .clk(clk),
+						 .rst(rst),
+					    .sel(switch_sel),
+						 .addr(data_addr[`REGF_ADDR_W-1:0]),
+					    .data_out(switch_data_to_rd)
+					    );
+						 
+	xbutton button (
+	                .clk(clk),
+						 .rst(rst),
+						 .data_in(button_in),
+					    .data_out(button_data_to_rd)
+					    );						 
+
    // INTERNAL ADDRESS DECODER
 
    xaddr_decoder addr_decoder (
-	                  // input select and address
+	                       // input select and address
                           .sel(data_sel),
-	                  .addr(data_addr),
+	                       .addr(data_addr),
                                
                           //memory 
-	                  .mem_sel(mem_sel),
+	                       .mem_sel(mem_sel),
                           .mem_data_to_rd(mem_data_to_rd),
 
                           //registers
-	                  .regf_sel(regf_sel),
+	                       .regf_sel(regf_sel),
                           .regf_data_to_rd(regf_data_to_rd),
-			  .led_sel(led_sel),
+			                 .led_sel(led_sel),
+								  .display_sel(display_sel),
+								  .switch_sel(switch_sel),
+								  .switch_data_to_rd(switch_data_to_rd),
+								  .button_sel(button_sel),
+								  .button_data_to_rd(button_data_to_rd),								  
+								  
 `ifdef DEBUG
                            //debug char printer
-	                  .cprt_sel(cprt_sel),
-                          //.led_sel(led_sel),
-			  .display_sel(display_sel),     
+	                        .cprt_sel(cprt_sel),
+                           //.led_sel(led_sel),
 `endif
 
 `ifndef NO_EXT
@@ -167,16 +201,6 @@ module xtop (
 		   .sel(cprt_sel & data_we),
 		   .data_in(data_to_wr[7:0])
 		   );
-
-   xdisplay display (
-		     .clk(clk),
-		     .rst(rst),
-		     .sel(display_sel & data_we),
-		     .n_display(data_to_wr[11:8]),
-		     .segments(data_to_wr[7:0]),
-		     .out(display_out)
-		     );   
-   
 `endif
    
 endmodule

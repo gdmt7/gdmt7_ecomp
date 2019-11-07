@@ -3,9 +3,19 @@
 #
 #	a simple picoVersat program
 #
-	
-	ldi 263
-	wrw DISPLAY_BASE
+
+read	
+	ldi 0
+ 	wrw LED_BASE	
+	rdw BUTTON_BASE
+	beqi read
+led
+	ldi 1
+	wrw LED_BASE 
+	rdw BUTTON_BASE
+	bnequi led       
+        ldi 0
+	beqi
        
 #finish by writing to invalid address to activate trap
 end	wrw 0x3ff

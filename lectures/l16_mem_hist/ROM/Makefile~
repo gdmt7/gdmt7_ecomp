@@ -1,0 +1,8 @@
+rom: rom.v
+	iverilog -W all -g2005-sv -D -o rom -s rom.v
+	./rom
+
+clean: 
+	rm -f rom *~ *.vcd
+
+.PHONY: clean all
