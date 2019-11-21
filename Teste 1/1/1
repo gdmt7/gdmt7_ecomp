@@ -1,0 +1,25 @@
+a) 
+
+Total sales = A(triangulo) = (W*H)/2 = (15*3)/2 = 22.5M$
+Total cost = V*UC + NRE = (10k * 1000) + 2M = 12M$
+
+total sales - total cost = 22.5M - 12M = 10.5 M$
+
+Lost Revenue = total sales - sales(d) -> d = delay em meses 
+
+10.5 = 22.5 - ((W-d)²/2W)*H -> WolframAplha -> d = 4.05 meses.
+
+b)
+
+PM = ? ; PM = 1 - (C/S)
+
+Total sales = s(d) = ((W-d)²/2W)*H = 19.6M$
+
+Total cost = c = V.UC + NRE = (10*10³ * 10³ ) + 2e6 = 12M$
+
+PM =  1 - (C/S) = 1- (12e6)/(19.6e6)= 0.38 -> aproximadamente 40 %
+
+c) Para um volume grande e um algoritmo complexo a melhor solução seria um processador dedicado com um chip personalizado para a aplicação,
+Um CPU ou FPGA de alto desempenho é caro, e não é otimizada para executar algoritmos complexos, e ainda possui muitas funções que não serão utilizadas, mas que terão de ser pagas. 
+
+

@@ -1,0 +1,8 @@
+a) A função do circuito descrito em verilog é efectuar o calculo de a³, por exemplo, para a=5 temos c=125. O pior caso de latência do circuito é igual 
+a 2 clock, devido ao facto de o y e o c serem 2 registos só vão ser actualizados no posedge de clk, pelo que quando introduzimos o valor da variavel a à entrada do circuito, o resultado só estará disponível após 2 clk.
+
+b) verilog
+
+c) Este circuito não suporta pipeline, visto que basta o valor da variavel a mudar a meio do cálculo da potência para que o resultado seja diferente do esperado. Para funcionar em pipeline, a variavel a teria de ser guardada em registo. Guarda-se assim uma quantidade de numeros no registo a, que a cada 2 clk seria rescrito.
+
+d) verilog - Com a versão combinatoria o circuito não tem delay, assim que é posto um valor à entrada do circuito é calculado imediatamente e está disponivel na saída do circuito.

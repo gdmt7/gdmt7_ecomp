@@ -1,0 +1,6 @@
+a) Verilog
+
+b) Este circuito não necessita de uma máquina de estados de controlo (FSM), porque a latência máxima do circuito é de um 1 clk, então y_is_valid = x_is_valid, o resultado está disponível após um periodo de clk.
+
+c) Tendo em conta que a latência máxima deste circuito é de 1 clk, é possível por à entrada do circuito uma sample rate de 50M / 1 = 50M samples.
+

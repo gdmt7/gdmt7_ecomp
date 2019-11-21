@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 
-module LFSR (clk, rst, out);
+module LFSR (clk, rst, valid, out);
 
-   input clk, rst;
+   input clk, rst, valid;
    output reg [2:0] out;
 
    wire feedback;
@@ -11,10 +11,12 @@ module LFSR (clk, rst, out);
 
 always @(posedge clk, posedge rst)
   begin
-    if (rst)
+    if (rst) begin
       out = 3'b0;
-    else
-      out = {out[1:0],feedback};
+    end
+    //else if (!valid) begin
+    else begin
+      out <= {out[1:0],feedback};
+    end
   end
-   
 endmodule

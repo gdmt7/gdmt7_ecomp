@@ -1,0 +1,8 @@
+XPTO: adderN.v adderN_tb.v
+	iverilog -o XPTO adderN.v adderN_tb.v
+	./XPTO
+
+clean: 
+	rm -f XPTO *~ *.vcd
+
+.PHONY: clean all
