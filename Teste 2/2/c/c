@@ -1,0 +1,9 @@
+trow_acess = 50 ps ; refresh interval = 80 us
+
+refresh duration = #rows x trow_acess = 2^12 x 50ps = 204.8 ns
+
+refresh overhead(%) = (refresh duration)/(refresh period) = (204.8 ns) / (80 us) = 0.256 %
+
+
+
+

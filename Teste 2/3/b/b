@@ -1,0 +1,10 @@
+Cache system 8kB ; 2-way ; 32B line ; 32 bit-word = 4B ; 512MB address space
+
+number of bytes transferred from memory to cache -> 8KB
+number of bytes transferred from cache to memory -> 8KB
+
+Write Through - the information is written to both the block in the cache and to the block in the lower-level memory.
+Write Back - the information is written only to the block in the cache. The modified cache block is written to main memory only when it is replaced.
+
+Write Allocate - the block is loaded on a write miss, followed by the write-hit action.
+No Write Allocate - the block is modified in the main memory and not loaded into the cache.

@@ -1,0 +1,9 @@
+8MB, 8-bit DRAM CHIP
+
+8MB/1B = (2^3.2^20.2^3) / (2^0.2^3) = 2^23 endereços => 23 bits para endereçar
+
+Considerando a construção do chip, temos 12 bits para as linhas e 11 bits paras as colunas.
+O número de IO pins é igual 12, visto que podemos usar o mesmo número de bits para as linhas e para as colunas.
+
+linhas -> O tamanho de um array em bytes é: 2^10.2^1.2^3 = 2KB
+colunas -> O tamanho de um array em bytes é: 2^10.2^2.2^3 = 4KB 

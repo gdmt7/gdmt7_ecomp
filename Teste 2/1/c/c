@@ -1,0 +1,10 @@
+RAM 16KB, 32 bit-word = 4B
+
+Para construir a RAM, são precisos 16KB/1KB = 16 modulos.
+A disposição dos blocos da RAM será 4 linhas e 4 colunas, para de facto conseguir obter a word de 32 bits através de palavras de 8 bits.
+
+#addr bits = 2^4.2^10 = 2^14 endereços => 10 bits para o endereço e 4 bit para selecionar o Chip
+
+
+
+ 

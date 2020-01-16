@@ -1,0 +1,17 @@
+Cache system 8kB ; 2-way ; 32B line ; 32 bit-word = 4B ; 512MB address space
+
+#lines = cache_size / line_size / #ways = 2^N (N-> número de bits necessários para endereçar todas as linhas (index))
+#lines = 8KB / 32B / 2 = 2^3.2^10.2^3/2^5.2^3/2^1 = 2^7 = 128 linhas => index  = 7 bits
+
+#offset_bits = log2(line_size/word_size) = log2(32B/4B) = log2(2^5.2^3/2^2.2^3) = log2(2^3) = 3 bits
+
+#addr_bits = 512 MB = 2^9.2^20 = 29 bits 
+
+Considerando o byte select = 512MB / 4B = 27 bits
+
+#tag = #addr_bits - #index_bits - #offset_bits = 27 - 7 - 3 = 17 bits
+ 
+ 17    7      3        2 
+|tag|index|offset|byte select| 
+
+17 + 7 + 3 + 2 = 29 bits = 2^29 endereços.

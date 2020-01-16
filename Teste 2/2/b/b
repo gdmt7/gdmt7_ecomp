@@ -1,0 +1,10 @@
+Cd = 400 fF ; Cc = 20 fF ; VDD = 1.8 V ; deltaV = 80 mV ; ts = 5ps
+Ri = ? 
+
+C = (Cd*Cc)/(Cd+Cc) = 19 fF -> condensadores em série 
+
+Vinf = [(cd-cc)/(cd+cc)]*(VDD/2) = 0.8 V
+
+ts = RC ln [(VDD/2-Vinf)/(VDD/2-deltaV-Vinf)] => R = 163.509 ohm.
+
+x*19e-15*ln(((1.8/2)-0.8)/((1.8/2)-0.8-80e-3)) = 5e-12 -> wolframaplha

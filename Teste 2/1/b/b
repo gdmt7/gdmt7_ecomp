@@ -1,0 +1,9 @@
+32KB, 8bit RAM
+
+Sendo que temos de usar instâncias da RAM da alíne anterior temos:
+
+RAM_32KB -> 32 x RAM_1KB = 32KB
+
+#addr bits = 2^5.2^10 => 5 bits para selecionar o chip da RAM de 1KB e 10 bits para endereçar dentro de cada de RAM de 1KB
+
+

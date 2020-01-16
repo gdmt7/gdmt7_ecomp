@@ -1,0 +1,8 @@
+module SIMM(addr,cas,ras,data);
+
+input [18:0] addr;
+input [3:0] cas;
+input [1:0] ras;
+output [15:0] data;
+
+endmodule

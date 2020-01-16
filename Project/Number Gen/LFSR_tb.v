@@ -10,15 +10,16 @@ module LFSR_tb();
    // Instantiate the Unit Under Test (UUT)
    LFSR uut (
              .clk(clk_tb),
-	     .rst(rst_tb),
+	         .rst(rst_tb),
              .valid(valid_tb),
-	     .out(out_tb)
-            );
+	         .out(out_tb)
+             );
 
 initial
 begin
     $dumpfile("LFSR.vcd");
     $dumpvars();
+    clk_tb = 1;
     rst_tb = 1;
     valid_tb = 1;
     #15;
@@ -27,7 +28,7 @@ begin
     #15
     
     valid_tb = 0;
-    #200;
+    #400;
     $finish;
 end
 
