@@ -1,4 +1,164 @@
 \section{Conclusions}
 \label{sec:progex}
+During the development of this project, many issues were encountered either software and hardware related. 
+This is not ideal due to the fact that it takes too much memory. 
+But since we didn't found a way of getting it to work properly and reliably, the less efficient but 
+working method was used. During the requirement definition of the project, it was discussed if the TIVA had enough space
+for a full framebuffer. 
+Other hardware related problems were encountered, the GPIO expanders had some anomalous behavior on the MISO
+line that prevented the GPIO read funcions from working properly. Also it was later discovered that the input 
+impedance of the ADCs was too high and it was preventing it from reading the proper values. The amount of 
+time spent debugging the software and hardware also prevented from testing the I2C interface, although being 
+quite important for the EGSE main purpose, the core of the driver was implemented and since a working version 
+of the driver was already implemented on the non-FreeRTOS version of the EGSE, the rest of the I2C testing and 
+debugging would be not complicated in the future in the scope of the ISTSAT-1 project.\newline
 
+\noindent Even after these drawbacks, we considered this project an excellent learning experience. 
+After this the group understands and it's able to design, implement, test and manufacture programmable and 
+completely dedicated electronic systems based on microcontrollers and configurable logic electronic 
+devices (FPGA).
+
+\appendix
+\appendixpage
+\section{Source code running on PicoVersat}
+
+\begin{lstlisting}[style=CStyle]
+    #include "memorygame.h"
+    #include "assign.h"
+        
+    int d0 = D0;
+    int d1 = D1;
+    int d2 = D2;
+    int d3 = D3;
+    int leds = LED;
+    int sw = SWITCHES;
+    int btn = BUTTONS;
+    int lfsr = LFSR;
+    int t = TRAP;
+    
+    void init(int* disp0,int* disp1,int* disp2, int* disp3){
+        assign(TODISP5, disp3);
+        assign(TODISPNILL, disp2);
+        assign(TODISPNILL, disp1);
+        assign(TODISPNILL, disp0);
+    
+        return;
+    }
+    
+    /*void delay(int time){
+        int i;
+        for(i=0;i<time;i++); // 5000000
+        return;
+    }*/
+    
+    int main (){
+        int* disp0 = (int*)d0;
+        int* disp1 = (int*)d1;
+        int* disp2 = (int*)d2;
+        int* disp3 = (int*)d3;
+        int* t = (int*)t;
+        int* b = (int*)btn;
+        int* s = (int*)sw;
+        int* l = (int*)leds;
+        int* lr = (int*)lfsr;
+        int a[8] = {1,8,4,2,4,2,1,8};
+        int numDisplay[10] = {TODISP0, TODISP1, TODISP2, TODISP3, TODISP4,\
+                                TODISP5, TODISP6, TODISP7, TODISP8, TODISP9};
+        int key[8] = {0,0,0,0,0,0,0,0};
+        int state = 0;
+        int i,j = 0;
+        int level = 1;
+        int hits = 0;
+        int totalHits = 0;
+        int index = 0;
+        int button = 0;
+        int scores = 0;
+        while (1){
+            switch (state) {
+                case 0:
+                    init(disp0, disp1, disp2, disp3);
+                    //Generate random sequence
+                    for(i = 0;i < 8;i++){
+                        key[i] = a[*lr];
+                    }
+                    while(*b != 9);
+                    assign(TODISP0, disp3);
+                    assign(TODISP0, disp2);
+                    state = 1;
+                    break;
+                case 1:
+                    if (level == 5){
+                        level = 1;
+                    }
+                    assign(TODISPNILL, disp1);
+                    assign(numDisplay[level], disp0);
+                    for(i=0;i<(level + 3);i++){
+                        assign(0,l);
+                        for(j=0;j<3000000;j++);
+                        assign(key[i],l);
+                        for(j=0;j<3000000;j++);
+                    }
+                    assign(0,l);
+                    state = 2;
+                    break;
+                case 2:
+                    hits = 0;
+                    while(hits < (level + 3)){
+                        while(button == 0){
+                            button = *b;
+                        }
+                        //assign(hits,l);
+                        for(j=0;j<1000000;j++);
+                        if(button != 1 && button != 2 && button != 4 && button != 8) {
+                            continue;
+                        }
+                        if(button != key[hits]) {
+                            assign(TODISPNILL,disp0);
+                            assign(TODISPNILL,disp3);
+                            assign(TODISP0,disp1);
+                            assign(TODISP6,disp2);
+                            for(j=0;j<5000000;j++);
+                            level = 1;
+                            scores = 0;
+                            button = 0;
+                            state = 3;
+                            break;
+                        }
+                        hits++;
+                        totalHits++;
+                        button = 0;
+                        if(totalHits < 10){
+                            assign(TODISP0, disp3);
+                            assign(numDisplay[totalHits], disp2);    
+                        }
+                        else if(totalHits >= 10 && totalHits < 20){
+                            assign(TODISP1, disp3);
+                            index = totalHits - 10;
+                            assign(numDisplay[index], disp2);  
+                        }
+                        else if(totalHits >= 20 && totalHits < 30){
+                            assign(TODISP2, disp3);
+                            index = totalHits - 20;
+                            assign(numDisplay[index], disp2);  
+                        }
+                        else if(totalHits >= 30){
+                            assign(TODISP3, disp3);
+                            index = totalHits - 30;
+                            assign(numDisplay[index], disp2);                     
+                        }
+                        //assign(48,l);
+                        for(j=0;j<1000000;j++);
+                    }
+                    if(hits == (level + 3)){
+                        level++;
+                    }
+                    state = 1;
+                    break;
+                default:
+                    break;
+            }
+        }
+        return 0;
+    }
+    \end{lstlisting}
 
