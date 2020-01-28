@@ -5,4 +5,6 @@
 \contentsline {table}{\numberline {5}{\ignorespaces Description of the base address from button peripheral.}}{10}{table.5}
 \contentsline {table}{\numberline {6}{\ignorespaces Description of the base address from LFSR peripheral.}}{10}{table.6}
 \contentsline {table}{\numberline {7}{\ignorespaces Memory map base addresses}}{10}{table.7}
-\contentsline {table}{\numberline {8}{\ignorespaces Truth table of the circuit LFSR.}}{15}{table.8}
+\contentsline {table}{\numberline {8}{\ignorespaces Content available to output on displays.}}{13}{table.8}
+\contentsline {table}{\numberline {9}{\ignorespaces Truth table of the circuit LFSR.}}{15}{table.9}
+\contentsline {table}{\numberline {10}{\ignorespaces Device Utilization Summary}}{16}{table.10}
