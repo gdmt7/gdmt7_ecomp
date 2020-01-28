@@ -1,0 +1,24 @@
+\contentsline {section}{Contents}{3}{section*.1}
+\contentsline {section}{List of Tables}{5}{section*.2}
+\contentsline {section}{List of Figures}{6}{section*.3}
+\contentsline {section}{\numberline {1}Introduction}{7}{section.1}
+\contentsline {section}{\numberline {2}Block Diagram}{7}{section.2}
+\contentsline {section}{\numberline {3}Interface Signals}{8}{section.3}
+\contentsline {section}{\numberline {4}Peripherals}{8}{section.4}
+\contentsline {subsection}{\numberline {4.1}Display driver}{9}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Led driver}{9}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Switch driver}{9}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Button driver}{10}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}LFSR Driver}{10}{subsection.4.5}
+\contentsline {section}{\numberline {5}Memory Map}{10}{section.5}
+\contentsline {section}{\numberline {6}Program Description}{11}{section.6}
+\contentsline {section}{\numberline {7}Implementation}{12}{section.7}
+\contentsline {subsection}{\numberline {7.1}External interface}{12}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Description of the display peripheral}{13}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Description of the buttons and switches peripheral}{14}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}Description of the LFSR peripheral}{14}{subsection.7.4}
+\contentsline {section}{\numberline {8}Results}{15}{section.8}
+\contentsline {section}{\numberline {9}Conclusions}{15}{section.9}
+\contentsline {section}{Appendices}{16}{section*.4}
+\contentsline {section}{\numberline {A}Header file included on the source code}{16}{appendix.A}
+\contentsline {section}{\numberline {B}Source code running on PicoVersat}{16}{appendix.B}

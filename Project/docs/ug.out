@@ -1,0 +1,24 @@
+\BOOKMARK [1][-]{section*.1}{Contents}{}% 1
+\BOOKMARK [1][-]{section*.2}{List of Tables}{}% 2
+\BOOKMARK [1][-]{section*.3}{List of Figures}{}% 3
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 4
+\BOOKMARK [1][-]{section.2}{Block Diagram}{}% 5
+\BOOKMARK [1][-]{section.3}{Interface Signals}{}% 6
+\BOOKMARK [1][-]{section.4}{Peripherals}{}% 7
+\BOOKMARK [2][-]{subsection.4.1}{Display driver}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.2}{Led driver}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.3}{Switch driver}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.4}{Button driver}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.5}{LFSR Driver}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{Memory Map}{}% 13
+\BOOKMARK [1][-]{section.6}{Program Description}{}% 14
+\BOOKMARK [1][-]{section.7}{Implementation}{}% 15
+\BOOKMARK [2][-]{subsection.7.1}{External interface}{section.7}% 16
+\BOOKMARK [2][-]{subsection.7.2}{Description of the display peripheral}{section.7}% 17
+\BOOKMARK [2][-]{subsection.7.3}{Description of the buttons and switches peripheral}{section.7}% 18
+\BOOKMARK [2][-]{subsection.7.4}{Description of the LFSR peripheral}{section.7}% 19
+\BOOKMARK [1][-]{section.8}{Results}{}% 20
+\BOOKMARK [1][-]{section.9}{Conclusions}{}% 21
+\BOOKMARK [1][-]{section*.4}{Appendices}{}% 22
+\BOOKMARK [1][-]{appendix.A}{Header file included on the source code}{}% 23
+\BOOKMARK [1][-]{appendix.B}{Source code running on PicoVersat}{}% 24

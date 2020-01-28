@@ -1,0 +1,8 @@
+\contentsline {table}{\numberline {1}{\ignorespaces Interface signals.}}{8}{table.1}
+\contentsline {table}{\numberline {2}{\ignorespaces Description of the base address from display peripheral.}}{9}{table.2}
+\contentsline {table}{\numberline {3}{\ignorespaces Description of the base address from led peripheral.}}{9}{table.3}
+\contentsline {table}{\numberline {4}{\ignorespaces Description of the base address from switch peripheral.}}{9}{table.4}
+\contentsline {table}{\numberline {5}{\ignorespaces Description of the base address from button peripheral.}}{10}{table.5}
+\contentsline {table}{\numberline {6}{\ignorespaces Description of the base address from LFSR peripheral.}}{10}{table.6}
+\contentsline {table}{\numberline {7}{\ignorespaces Memory map base addresses}}{10}{table.7}
+\contentsline {table}{\numberline {8}{\ignorespaces Truth table of the circuit LFSR.}}{15}{table.8}

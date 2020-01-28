@@ -1,56 +1,3 @@
-\section{Conclusions}
-\label{sec:progex}
-During the development of this project, many issues were encountered either software and hardware related. 
-This is not ideal due to the fact that it takes too much memory. 
-But since we didn't found a way of getting it to work properly and reliably, the less efficient but 
-working method was used. During the requirement definition of the project, it was discussed if the TIVA had enough space
-for a full framebuffer. 
-Other hardware related problems were encountered, the GPIO expanders had some anomalous behavior on the MISO
-line that prevented the GPIO read funcions from working properly. Also it was later discovered that the input 
-impedance of the ADCs was too high and it was preventing it from reading the proper values. The amount of 
-time spent debugging the software and hardware also prevented from testing the I2C interface, although being 
-quite important for the EGSE main purpose, the core of the driver was implemented and since a working version 
-of the driver was already implemented on the non-FreeRTOS version of the EGSE, the rest of the I2C testing and 
-debugging would be not complicated in the future in the scope of the ISTSAT-1 project.\newline
-
-\noindent Even after these drawbacks, we considered this project an excellent learning experience. 
-After this the group understands and it's able to design, implement, test and manufacture programmable and 
-completely dedicated electronic systems based on microcontrollers and configurable logic electronic 
-devices (FPGA).
-
-\clearpage
-\appendix
-\appendixpage
-\section{Header file included on the source code}
-\begin{lstlisting}[style=CStyle]
-#define D0 2080
-#define D1 2082
-#define D2 2084
-#define D3 2086
-#define LED 2088
-#define SWITCHES 2090
-#define BUTTONS 2092
-#define LFSR 2094
-#define TRAP 2098
-
-
-#define TODISP0 0xC0
-#define TODISP1 0xF9
-#define TODISP2 0xA4
-#define TODISP3 0xB0
-#define TODISP4 0x99
-#define TODISP5 0x92
-#define TODISP6 0x82
-#define TODISP7 0xF8
-#define TODISP8 0x80
-#define TODISP9 0x90
-#define TODISPE 0x86
-#define TODISPNILL 0xFF
-\end{lstlisting}
-
-
-\section{Source code running on PicoVersat}
-\begin{lstlisting}[style=CStyle]
 #include "memorygame.h"
 #include "assign.h"
 
@@ -97,6 +44,7 @@ int main (){
         switch (state) {
             case 0:
                 init(disp0, disp1, disp2, disp3);
+                //Generate random sequence
                 for(i = 0;i<8;i++){
                     key[i] = a[*lr];
                 }
@@ -185,5 +133,3 @@ int main (){
     }
     return 0;
 }
-\end{lstlisting}
-

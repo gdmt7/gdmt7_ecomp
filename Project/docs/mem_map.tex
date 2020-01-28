@@ -10,21 +10,29 @@ Table~\ref{tab:memmap}.
     \hline 
     {\bf Mnemonic} & {\bf Address} & {\bf Read/Write} & {\bf Read Latency} & {\bf Description} \\
     \hline \hline 
-     REGF\_BASE & 0x200 & Read+Write & 0 & Register file peripheral \\
+     REGF\_BASE & 0x800 & Read+Write & 0 & Register file peripheral. \\
     \hline
-     CPRT\_BASE & 0x258 & Write only & NA & Debug printer periheral \\
+     CPRT\_BASE & 0x812 & Write only & NA & Debug printer periheral. \\
     \hline
-     LED\_BASE & 0x25A & Read+Write & 0 & Led peripheral \\
+     EXT\_BASE & 0x820 & Write only & NA & External interface. \\
     \hline
-     SWITCH\_BASE & 0x25C & Read only & 0 & Switch peripheral \\
+     DISPLAY0 & 0x820 & Read+Write & 0 & Display0 peripheral. \\ 
     \hline
-     BUTTON\_BASE & 0x25E & Read only & 0 & Button peripheral \\
+     DISPLAY1 & 0x822 & Read only & 0 & Display1 peripheral. \\
     \hline
-     DISPLAY\_BASE & 0x260 & Write only & 0 & Display peripheral \\
+     DISPLAY2 & 0x824 & Read only & 0 & Display2 peripheral. \\
     \hline
-     PS2\_BASE & 0x262 & Read only & 0 & PS2 peripheral \\
+     DISPLAY3 & 0x826 & Write only & 0 & Display3 peripheral. \\
     \hline
-     PROG\_BASE & 0x0 & Read+Write & 1 & User programs and data \\
+     LED\_BASE & 0x828 & Write only & 0 & LED peripheral. \\
+    \hline
+     SWITCH\_BASE & 0x82A & Write only & 0 & SWITCH peripheral. \\
+    \hline
+     BUTTON\_BASE & 0x82C & Write only & 0 & BUTTON peripheral. \\
+    \hline
+     LFSR\_BASE & 0x82E & Read only & 1 & LFSR peripheral. \\
+    \hline
+     PROG\_BASE & 0x0 & Read+Write & 1 & User programs and data. \\
     \hline
     \end{tabular}
   \caption{Memory map base addresses}
@@ -34,17 +42,23 @@ Table~\ref{tab:memmap}.
 \clearpage
 \section{Program Description}
 \label{sec:pgrm}
-The state diagram of the Fig.~\ref{fig:state}, it's the proposal system to implement, this diagram is intend to give an abstract description of the behavior of tthe system that will be running in the PicoVersat processor. This behavior is represented as a series of events that occur in the three states, and by this events the program will flow the schematic doing the value of the events.
+The state diagram of the Fig.~\ref{fig:state}, it's the proposal system to implement, 
+this diagram is intend to give an abstract description of the behavior of tthe system that 
+will be running in the PicoVersat processor. This behavior is represented as a series of events 
+that occur in the three states, and by this events the program will flow the schematic doing the 
+value of the events.
 
 \noindent
-The idle state has the main objective of reset all the important variables of the system, after reseting the value of each led and the score of
-the player, waits until the start button is pressed to initiate the game and call the state game.
+The idle state has the main objective of reset all the important variables of the system, after reseting the value of each led, score and level. 
+The system waits until the user pressed the condition of start to initiate the game and call the show state.
 
 \noindent
-The game state is where the game occurs, this state has the main tasks such as sending the keystrokes to the verification state, if the verification flag is set to zero, the state will generate a new level and a new random sequence and the game will continue.
+The show state is where a new level is generated, a new random sequence is shown in the led's.
+As the level increases the time between each led blinking increases too. 
 
 \noindent
-The check state have the responsibility of checking each move and set the value of the check flag according to the value of received keys. Due the check flag the state will show the value of each level and score, if the flag last level is set to one the check state will return to the idle mode and send a message that the player have won the game.
+The game state have the responsibility of checking each move and increment the respective score and level. This state will show the value of each level and score. After the player win the game or loose the system will return to the idle mode showing a message that the 
+player have won the game.
 
 \begin{figure}[!htbp]
     \centerline{\includegraphics[width=\textwidth]{state}}

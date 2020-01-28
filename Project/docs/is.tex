@@ -13,17 +13,13 @@ The interface signals of the project are described in Table~\ref{tab:is}.
 \hline
 \multicolumn{1}{|l|}{rst}                & IN & Button driver & Reset game signal.\\
 \hline
-\multicolumn{1}{|l|}{start}              & IN & Button driver & Start game signal.\\
+\multicolumn{1}{|l|}{Buttons}            & IN & Button driver & Buttons to play the game.\\
 \hline
-\multicolumn{1}{|l|}{PS/2 clk}            & IN & PS/2 driver  & PS/2 clock signal.\\
+\multicolumn{1}{|l|}{Switches}           & IN & Switch driver & Implemented but not used. \\
 \hline
-\multicolumn{1}{|l|}{PS/2 data}           & IN & PS/2 driver & PS/2 data signal.\\
+\multicolumn{1}{|l|}{Leds}               & OUT & LED driver & Represent the game board.\\
 \hline
-\multicolumn{1}{|l|}{LEDs}               & OUT & LED driver & Represent the game board.\\
-\hline
-\multicolumn{1}{|l|}{Display}            & OUT & Display driver & Represents the game score and level.\\
-\hline
-\multicolumn{1}{|l|}{Switches}            & IN & Display driver & Keys to input instead of using the keyboard. \\
+\multicolumn{1}{|l|}{Displays}            & OUT & Display driver & Represents the game score and level.\\
 \hline
 \end{tabular}
 \caption{Interface signals.}
