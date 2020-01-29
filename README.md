@@ -1,37 +1,11 @@
-# SEC(Electronic Systems of Computers) - Classes #
+# SEC(Electronic Systems of Computers) - MemoryGame Project readme file #
 
-### Project - 20/09 ###
+### Project - Memory Game
+* git clone https://github.com/gdmt7/gdmt7_ecomp.git
+* git clone https://jjts@bitbucket.org/jjts/picoversat.git
+* Follow the steps in the previous repository for installing the needed tools
 
-* Project proposal in project/docs
-
-### Lesson 2 - 23/09 ###
-
-* Commented Verilog Code
-
-### Lesson 3 - 26/09 ###
-
-* Multiple 2 numbers in picoversat assembly languague
-
-### Lesson 4 - 30/09 ###
-
-* FPGA diagram block drawn in LibreOffice
-
-### Lesson 5 - 03/10 ###
-
-* 
-
-### Lesson 6 - 07/10 ###
-
-* Parameterized verilog code for an adder 
-
-### Lesson 7 - 10/10 ###
-
-* Verilog of a 4-bit adder using single 1-bit full adders
-
-### Lesson 8 - 14/10 ###
-
-* Design in verilog a 4-bit adder with Carry Look-Ahead technique
-
-### Lesson 9 - 17/10 ###
-
-* Description in verilog of a 2-bit multiplier
+* Create a new ISE project, and add as include file the xdefs.vh file under Project/MemoryGame/rtl/include
+* Add ucf file to the project under  Project/fpga
+* Add as source files, from the both paths, Project/MemoryGame/rtl/src  /picoversat/src/master/rtl/src/
+* Build the bitstream and program the FPGA.
