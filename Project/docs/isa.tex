@@ -31,10 +31,10 @@ or 4ms. Figure~\ref{fig:temp} shows an example timing diagram for a four-digit s
 \end{figure}
 
 \vspace{10pt}
-\noindent Which cathodes have to be activated to display that number. The order of the 
-cathodes can be seen in figure 6 and the relation between each digit and the correspondent 
-cathode code is presented in table 4. The cathode code set which of the segments of the 
-display are on and off. 
+\noindent To generate all the configurations possible in the seven segment display, 
+in the Table~\ref{tab:disp_values} is the value of each bit. Each of the displays are assembled with
+a common cathode so to lighting the respective led of each display the value to be wrtitten on the 
+port it is a zero.
 
 \vspace{10pt}
 \begin{table}[!htbp]
@@ -59,19 +59,21 @@ display are on and off.
 \end{table}
 
 \clearpage
+\noindent Figure~\ref{fig:display_interface} has 4 registers (flip-flop type D) with the ability to store the values
+arriving at the PicoVersat data bus, it is possible to update the display of seven segments at once.
+A seven-segment display is activated once every 1 ms, for which an 18-bit counter has been implemented.
+This counter is incremented with each clock cycle, when the counter reaches the desired value, a control signal is
+generated to notify a four-bit shift register. Every time this control signal takes the high value, the shift register is
+shifted slightly to the left to cover the requirement for all four screens being updated in a 16 ms cycle.
+The four-bit register can be seen in Figure~\ref{fig:display_interface} as a multiplexer, according to
+word of four bits the shift register will choose one of the inputs.
+
+\vspace{10pt}
 \begin{figure}[!htbp]
-    \centerline{\includegraphics[scale=0.45]{display_interface}}
+    \centerline{\includegraphics[scale=0.6]{display_interface}}
     \vspace{0cm}\caption{Block diagram of the display implementation.}
     \label{fig:display_interface}
 \end{figure}
-
-%\clearpage
-%\subsection{Description of the buttons and switches peripheral}
-%\begin{figure}[!htbp]
-%    \centerline{\includegraphics[scale=0.8]{switch_interface}}
-%    \vspace{0cm}\caption{Buttons and switches interface.}
-%    \label{fig:switch_interface}
-%s\end{figure}
 
 \clearpage
 \subsection{Description of the LFSR peripheral}
@@ -111,7 +113,7 @@ finally we use the values produce by the LFSR to index this LUT to generate diff
 \end{table} 
 
 \clearpage
-\section{Results}
+\section{Conlusion and results}
 \label{sec:results}
 
 \begin{table}[!htbp]

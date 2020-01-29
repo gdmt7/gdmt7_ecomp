@@ -16,8 +16,7 @@
 \contentsline {subsection}{\numberline {7.1}External interface}{12}{subsection.7.1}
 \contentsline {subsection}{\numberline {7.2}Description of the display peripheral}{13}{subsection.7.2}
 \contentsline {subsection}{\numberline {7.3}Description of the LFSR peripheral}{15}{subsection.7.3}
-\contentsline {section}{\numberline {8}Results}{16}{section.8}
-\contentsline {section}{\numberline {9}Conclusions}{16}{section.9}
+\contentsline {section}{\numberline {8}Conlusion and results}{16}{section.8}
 \contentsline {section}{Appendices}{17}{section*.4}
 \contentsline {section}{\numberline {A}Header file included on the source code}{17}{appendix.A}
 \contentsline {section}{\numberline {B}Source code running on PicoVersat}{17}{appendix.B}
