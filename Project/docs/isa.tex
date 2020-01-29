@@ -59,14 +59,13 @@ port it is a zero.
 \end{table}
 
 \clearpage
-\noindent Figure~\ref{fig:display_interface} has 4 registers (flip-flop type D) with the ability to store the values
-arriving at the PicoVersat data bus, it is possible to update the display of seven segments at once.
-A seven-segment display is activated once every 1 ms, for which an 18-bit counter has been implemented.
-This counter is incremented with each clock cycle, when the counter reaches the desired value, a control signal is
-generated to notify a four-bit shift register. Every time this control signal takes the high value, the shift register is
-shifted slightly to the left to cover the requirement for all four screens being updated in a 16 ms cycle.
-The four-bit register can be seen in Figure~\ref{fig:display_interface} as a multiplexer, according to
-word of four bits the shift register will choose one of the inputs.
+\noindent Displays driver (Figure~\ref{fig:display_interface}) has four registers (flip-flop type D) with the ability to store the values arriving from PicoVersat data bus,
+it is possible to update each display individually by requesting for it's specific address . A seven-segment display is activated once
+every 1 ms, for which an 18-bit counter has been implemented. This counter is incremented with each clock
+cycle, when the counter reaches the desired value, a control signal is generated to notify a four-bit shift register.
+Every time this control signal takes the high value, the shift register is shifted slightly to the left to cover the
+requirement for all four screens being updated in a 16 ms cycle. The four-bit register can be seen in Figure 6
+as a multiplexer, according to word of four bits the shift register will choose one of the inputs.
 
 \vspace{10pt}
 \begin{figure}[!htbp]

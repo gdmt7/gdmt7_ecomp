@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.10.18)  29 JAN 2020 15:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.10.18)  29 JAN 2020 16:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -855,15 +855,15 @@ Package pdftex.def Info: ./figures/Logo.png  used on input line 61.
  [13
 
  <./figures/temp.png>]
-<./figures/display_interface.pdf, id=284, 739.80388pt x 666.57025pt>
+<./figures/display_interface.pdf, id=283, 739.80388pt x 666.57025pt>
 File: ./figures/display_interface.pdf Graphic file (type pdf)
 <use ./figures/display_interface.pdf>
-Package pdftex.def Info: ./figures/display_interface.pdf  used on input line 73
+Package pdftex.def Info: ./figures/display_interface.pdf  used on input line 72
 .
 (pdftex.def)             Requested size: 443.88576pt x 399.94524pt.
 File: ./figures/Logo.png Graphic file (type png)
 <use ./figures/Logo.png>
-Package pdftex.def Info: ./figures/Logo.png  used on input line 78.
+Package pdftex.def Info: ./figures/Logo.png  used on input line 77.
 (pdftex.def)             Requested size: 31.3671pt x 34.62929pt.
  [14
 
@@ -873,14 +873,14 @@ pdfTeX warning: pdflatex (file ./figures/display_interface.pdf): PDF inclusion:
  invalid other resource which is no dict (key 'ProcSets', type <array>); ignore
 d.
 >]
-<./figures/LFSR.pdf, id=310, 912.2883pt x 495.77219pt>
+<./figures/LFSR.pdf, id=309, 912.2883pt x 495.77219pt>
 File: ./figures/LFSR.pdf Graphic file (type pdf)
 <use ./figures/LFSR.pdf>
-Package pdftex.def Info: ./figures/LFSR.pdf  used on input line 87.
+Package pdftex.def Info: ./figures/LFSR.pdf  used on input line 86.
 (pdftex.def)             Requested size: 410.52594pt x 223.09541pt.
 File: ./figures/Logo.png Graphic file (type png)
 <use ./figures/Logo.png>
-Package pdftex.def Info: ./figures/Logo.png  used on input line 115.
+Package pdftex.def Info: ./figures/Logo.png  used on input line 114.
 (pdftex.def)             Requested size: 31.3671pt x 34.62929pt.
  [15
 
@@ -973,10 +973,10 @@ pe1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helve
 tic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.p
 fb>
-Output written on ug.pdf (19 pages, 287451 bytes).
+Output written on ug.pdf (19 pages, 287490 bytes).
 PDF statistics:
- 597 PDF objects out of 1000 (max. 8388607)
- 533 compressed objects within 6 object streams
+ 596 PDF objects out of 1000 (max. 8388607)
+ 532 compressed objects within 6 object streams
  218 named destinations out of 1000 (max. 500000)
  217 words of extra memory for PDF output out of 10000 (max. 10000000)
 
