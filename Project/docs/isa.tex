@@ -114,7 +114,13 @@ finally we use the values produce by the LFSR to index this LUT to generate diff
 \clearpage
 \section{Conlusion and results}
 \label{sec:results}
+The main objective of this final project has been accomplished,
+the game works as expected. The division of project in different stages allowed a better understanding of the system to develop and making more easier there implementation. The realization of this project it is divided into two different approaches. The first part is to development a system using an hardware description language (verilog) the peripherals requirement by the system. In this phase of the work many tests are made to each of the peripherals to check its correct operation. 
+The program to be executed  was implemented using  the PicoVersat C compiler by Gonçalo Santos referred at Picoversat repository, this allow for a more complex and robust running sequence, at cost of using more memory and the program itself being less efficient.
+The device utilization summary for this project was extracted through Xilinx ISE software for BASYS 2 FPGA board as shown in Table~\ref{tab:utilization}, a high usage of FPGA slices and be observed, in the other hand this project has very few flip-flops to what was available.
+The development of these applications allowed to obtain a more detailed experience and knowledge to design and build systems using FPGAs and a core of a processor to control all entire system
 
+\vspace{10pt}
 \begin{table}[!htbp]
 \centering
     \begin{tabular}{|l|r|r|r|}
